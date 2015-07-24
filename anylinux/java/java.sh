@@ -13,8 +13,8 @@ wget --no-cookies --no-check-certificate --header \
 
 tar xvf $NAME.tar.gz
 chown -R root: $JAVANAME
-alternatives --install /usr/bin/java java /opt/$JAVANAME/bin/java 20000
-alternatives --install /usr/bin/javac javac /opt/$JAVANAME/bin/javac 20000
+ln -s /opt/$JAVANAME/bin/java /usr/bin/java
+ln -s /opt/$JAVANAME/bin/javac /usr/bin/javac
 rm $NAME.tar.gz
 
 echo "export JAVA_HOME=/opt/$JAVANAME/" >> /etc/profile.d/java.sh
