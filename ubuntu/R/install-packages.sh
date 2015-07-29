@@ -10,7 +10,17 @@ local({
 })
 EOF
 
-# install R packages
-#   for some reason this command seems to fail inside the script, but if
-#   you just run it by hand, it works.
-R -f package-installs.R
+# basic development packages
+R -e 'install.packages("rstudioapi")'
+R -e 'install.packages("devtools")'
+R -e 'install.packages("roxygen2")'
+R -e 'install.packages("testthat")'
+R -e 'install.packages("knitr")'
+
+# key packages for my applied workflow
+R -e 'install.packages("dplyr")'
+R -e 'install.packages("tidyr")'
+R -e 'install.packages("plyr")'
+R -e 'install.packages("stringr")'
+R -e 'install.packages("ggplot2")'
+
