@@ -50,5 +50,5 @@ echo '. /home/nix/.nix-profile/etc/profile.d/nix.sh' >> /etc/profile.d/nix.sh
 
 # run nix-env -qa, which seems to cache some data, so later operations
 # won't be so slow. Also, if this fails you know something went badly.
-source ~/.bashrc
+source /home/nix/.nix-profile/etc/profile.d/nix.sh
 nix-env -qa
