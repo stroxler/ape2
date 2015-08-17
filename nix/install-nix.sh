@@ -45,7 +45,7 @@ mkdir -p -m 1777 /nix/var/nix/profiles/per-user
 mkdir -p -m 1777 /nix/var/nix/gcroots/per-user
 
 # make sure root and other users get nix on their path
-echo '. /home/nix/.nix-profile/etc/profile.d/nix.sh' >> ~/.bashrc
+echo '. /home/nix/.nix-profile/etc/profile.d/nix.sh' >> $HOME/.bashrc
 echo '. /home/nix/.nix-profile/etc/profile.d/nix.sh' >> /etc/profile.d/nix.sh
 
 # run nix-env -qa, which seems to cache some data, so later operations
