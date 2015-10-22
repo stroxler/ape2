@@ -3,18 +3,14 @@
 set -e
 set -x
 
-INSTALL_LOCATION=/usr/local
-GRADLE_ZIP=gradle-2.4-all.zip
-RESULT_FOLDER=gradle-2.4
+version=2.4
 
-cd $INSTALL_LOCATION
+mkdir -p /opt/bin
+cd /opt
 
-wget https://services.gradle.org/distributions/$GRADLE_ZIP
-unzip $GRADLE_ZIP
-ln -s $INSTALL_LOCATION/$RESULT_FOLDER/bin/gradle bin/gradle
-rm $GRADLE_ZIP
+wget https://services.gradle.org/distributions/gradle-$version-all.zip
+unzip gradle-$version-all.zip
+rm gradle-$version-all.zip
+ln -s /opt/gradle-$version/bin/gradle /opt/bin/gradle
 
-echo "export GRADLE_HOME=$INSTALL_LOCATION/$RESULT_FOLDER" >> /etc/profile.d/gradle.sh
-
-# also add thrift
-sh /root/centos6_thrift_install.sh
+echo "export GRADLE_HOME=/opt/$RESULT_FOLDER" >> /etc/profile.d/gradle.sh

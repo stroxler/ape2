@@ -1,14 +1,14 @@
 set -e
 set -x
 
-mkdir -p $HOME/build
-cd $HOME/build
-wget http://mirror.cc.columbia.edu/pub/software/apache/maven/maven-3/3.0.5/binaries/apache-maven-3.0.5-bin.tar.gz
-tar -xzf apache-maven-3.0.5-bin.tar.gz -C /usr/local
+version=3.0.5
 
-cd /usr/local
-ln -s apache-maven-3.0.5 maven
+mkdir -p /opt/bin
+cd /opt
 
-cd /etc/profile.d
-echo 'export M2_HOME=/usr/local/maven' >> maven.sh
-echo 'export PATH=${M2_HOME}/bin:${PATH}' >> maven.sh
+wget http://mirror.cc.columbia.edu/pub/software/apache/maven/maven-3/$version/binaries/apache-maven-$version-bin.tar.gz
+tar -xzf apache-maven-$version-bin.tar.gz
+rm -rf apache-maven-$version-bin.tar.gz 
+ln -s apache-maven-$version maven
+ln -s /opt/maven/bin/mvn /opt/bin/mvn
+echo 'export M2_HOME=/opt/maven' >> /etc/profile.d/maven.sh
