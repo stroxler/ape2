@@ -16,6 +16,7 @@ tar xzf $NAME.tar.gz
 chown -R root: $JAVANAME
 ln -s /opt/$JAVANAME/bin/java /opt/bin/java
 ln -s /opt/$JAVANAME/bin/javac /opt/bin/javac
+ln -s /opt/$JAVANAME/bin/jar /opt/bin/jar
 rm $NAME.tar.gz
 
 echo "export JAVA_HOME=/opt/$JAVANAME/" >> /etc/profile.d/java.sh
